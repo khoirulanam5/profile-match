@@ -1,0 +1,35 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Perhitungan extends CI_Controller {
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model([
+			'auth_model', 'siswa_model', 
+			'kriteria_model', 'profile_standar_model',
+			'subkriteria_model', 'gap_model',
+			'penilaian_model', 'jenis_model',
+			'setting_model'
+		]);
+		$this->load->helper('form');
+		if(!$this->auth_model->current_user()){
+			redirect('auth/login');
+		}
+	}
+
+	public function index()
+	{
+		$data['title'] = 'Perhitungan';
+		$data['kriteria'] = $this->kriteria_model->get();
+		$data['penilaian'] = $this->penilaian_model->get();
+		// $data['siswa'] = $this->siswa_model->get(['verifikasi' => 1]);
+		$data['siswa'] = $this->penilaian_model->get_siswa(['verifikasi' => 1]);
+		$data['jenis'] = $this->jenis_model->get();
+		$data['setting'] = $this->setting_model->find();
+
+		$this->load->view('admin/perhitungan_list.php', $data);
+	}
+
+}
+

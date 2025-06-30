@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<?php $this->load->view('admin/_partials/head.php') ?>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed text-sm">
+	<div class="wrapper">
+		<?php $this->load->view('admin/_partials/side_nav.php') ?>
+		<div class="content-wrapper">
+			<div class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<!-- /.col -->
+						<div class="col-sm-12">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item active">Siswa</li>
+							</ol>
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.container-fluid -->
+			</div>
+			<section class="content">
+				<div class="container-fluid">
+					<div class="card card-primary card-outline">
+						<div class="card-header">
+							<h3 class="card-title">
+								List Data Siswa
+							</h3>
+						</div>
+						<div class="card-body">
+							<div class="form-group text-right">
+								<!-- <a href="<?= site_url('admin/siswa/new') ?>" class="btn btn-primary" role="button">+ Tambah Siswa</a> -->
+							</div>
+							<table class="table table-hover" id="example1">
+								<thead>
+									<tr>
+										<th>No</th>
+										<th>NIS</th>
+										<th>Nama Lengkap</th>
+										<th>Jenis Kelamin</th>
+										<th>Alamat</th>
+										<th>Nama Wali</th>
+										<th>Telepon</th>
+										<th>Kelas</th>
+										<th>Tahun Daftar</th>
+										<th>Status</th>
+										<th>Tgl Verifikasi</th>
+										<!-- <th>Lama Daftar</th> -->
+										<th style="width: 10%;" class="txt-center">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php $sn = 1 ?>
+
+									<?php foreach ($siswa as $s) { ?>
+										<tr>
+											<td>
+												<div scope="row"><?= $sn ?></div>
+											</td>
+											<td>
+												<div><?= $s->nis ?></div>
+											</td>
+											<td>
+												<div><?= $s->nama ?></div>
+											</td>
+											<td>
+												<div><?= $s->jenis_kelamin ?></div>
+											</td>
+											<td>
+												<div><?= $s->alamat ?></div>
+											</td>
+											<td>
+												<div><?= $s->nama_wali ?></div>
+											</td>
+											<td>
+												<div><?= $s->telepon ?></div>
+											</td>
+											<td>
+												<div><?= $s->kelas ?></div>
+											</td>
+											<td>
+												<div><?= $s->tahun_daftar ?></div>
+											</td>
+											<td>
+												<div><?= $s->verifikasi === '1' ? 'Terverifikasi' : 'Belum diverifikasi' ?></div>
+											</td>
+											<td>
+												<div><?= $s->tgl_verifikasi ?></div>
+											</td>
+											<!-- <td>
+												<div><?= $s->hari ?></div>
+											</td> -->
+											<td>
+												<div class="action">
+													<a href="<?= site_url('admin/siswa/edit/' . $s->id) ?>" class="btn btn-sm btn-warning" role="button">Edit</a>
+													<a href="#" data-delete-url="<?= site_url('admin/siswa/delete/' . $s->id) ?>" class="btn btn-sm btn-danger" role="button" onclick="deleteConfirm(this)">Delete</a>
+
+													<?php if ($s->verifikasi == 0) { ?>
+														<a href="#" data-verif-url="<?= site_url('admin/siswa/verifikasi/' . $s->id) ?>" class="btn btn-sm btn-info" role="button" onclick="verifikasi(this)">Verifikasi</a>
+													<?php } ?>
+												</div>
+											</td>
+										</tr>
+
+										<?php $sn++; ?>
+
+									<?php } ?>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<?php $this->load->view('admin/_partials/footer.php') ?>
+
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script>
+		function deleteConfirm(event) {
+			Swal.fire({
+				title: 'Delete Confirmation!',
+				text: 'Are you sure to delete the item?',
+				icon: 'warning',
+				showCancelButton: true,
+				cancelButtonText: 'No',
+				confirmButtonText: 'Yes Delete',
+				confirmButtonColor: 'red'
+			}).then(dialog => {
+				if (dialog.isConfirmed) {
+					window.location.assign(event.dataset.deleteUrl);
+				}
+			});
+		}
+
+		function verifikasi(event) {
+			Swal.fire({
+				title: 'Confirmation!',
+				text: 'Apakah yakin akan memverifikasi user ini?',
+				icon: 'warning',
+				showCancelButton: true,
+				cancelButtonText: 'No',
+				confirmButtonText: 'Yes',
+				confirmButtonColor: 'red'
+			}).then(dialog => {
+				if (dialog.isConfirmed) {
+					window.location.assign(event.dataset.verifUrl);
+				}
+			});
+		}
+	</script>
+
+
+	<script>
+		$(function() {
+			$("#example1").DataTable({
+				"responsive": true,
+				"lengthMenu": [
+					[10, 25, 50, 100, -1],
+					[10, 25, 50, 100, "All"]
+				],
+				"autoWidth": false,
+			});
+
+			$('#example2').DataTable({
+				"paging": true,
+				"lengthChange": false,
+				"searching": false,
+				"ordering": true,
+				"info": true,
+				"autoWidth": false,
+				"responsive": true,
+			});
+		});
+	</script>
+
+	<?php if ($this->session->flashdata('message')): ?>
+		<script>
+			const Toast = Swal.mixin({
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 3000,
+				timerProgressBar: true,
+				didOpen: (toast) => {
+					toast.addEventListener('mouseenter', Swal.stopTimer)
+					toast.addEventListener('mouseleave', Swal.resumeTimer)
+				}
+			});
+
+			Toast.fire({
+				icon: 'success',
+				title: '<?= $this->session->flashdata('message') ?>'
+			});
+		</script>
+		<?php $this->session->unset_userdata('message'); ?>
+	<?php endif; ?>
+
+</body>
+
+</html>
