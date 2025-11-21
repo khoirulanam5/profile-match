@@ -1,70 +1,156 @@
-###################
-What is CodeIgniter
-###################
+# 🏆 Sistem Pendukung Keputusan (SPK) Pemilihan Siswa Terbaik
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+Sistem ini dibuat untuk membantu sekolah dalam menentukan **siswa terbaik** secara objektif menggunakan **Metode Profile Matching**. Sistem dilengkapi dengan fitur lengkap, multi-role, serta tampilan landing page yang modern.
 
-*******************
-Release Information
-*******************
+---
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+## 🚀 Teknologi yang Digunakan
 
-**************************
-Changelog and New Features
-**************************
+* **Framework Backend:** CodeIgniter 3
+* **Database:** MySQL
+* **Frontend:** HTML, CSS, JavaScript, Bootstrap
+* **Metode SPK:** Profile Matching
+* **Tampilan:** Landing Page Modern & Responsif
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+---
 
-*******************
-Server Requirements
-*******************
+## 👥 Role Pengguna
 
-PHP version 5.6 or newer is recommended.
+### 1. **Admin**
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+* Mengelola data siswa
+* Mengelola kriteria & subkriteria
+* Mengelola bobot GAP profile matching
+* Mengolah penilaian
+* Melihat dan mencetak laporan hasil SPK
 
-************
-Installation
-************
+### 2. **Wali Kelas**
 
-Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
-of the CodeIgniter User Guide.
+* Input nilai atau penilaian siswa berdasarkan kriteria
+* Melihat ranking sementara
 
-*******
-License
-*******
+### 3. **Siswa**
 
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
+* Melihat hasil ranking (jika diizinkan)
+* Melihat profil dan informasi penilaian pribadi
 
-*********
-Resources
-*********
+---
 
--  `User Guide <https://codeigniter.com/docs>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
+## 🧩 Fitur Utama
 
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
+### 🎯 **Metode Profile Matching Lengkap**
 
-***************
-Acknowledgement
-***************
+* Penentuan kriteria dan subkriteria
+* Pembobotan core factor & secondary factor
+* Perhitungan GAP otomatis
+* Perangkingan siswa terbaik
 
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+### 👨‍🏫 **Manajemen Data Siswa**
+
+* Tambah, edit, hapus data siswa
+* Pembagian per kelas
+
+### 📊 **Penilaian oleh Wali Kelas**
+
+* Form input nilai lengkap berdasarkan kriteria
+* Validasi input
+
+### 📝 **Laporan Hasil SPK**
+
+* Ranking siswa terbaik
+* Nilai total & detail perhitungan
+* Cetak PDF (opsional)
+
+### 🎨 **Landing Page Modern**
+
+* Profil sekolah
+* Informasi sistem
+* Highlight fitur unggulan
+* CTA untuk login
+
+---
+
+## 📦 Struktur Direktori (Umum)
+
+```
+spk-siswa-terbaik/
+├── application/
+│   ├── controllers/
+│   ├── models/
+│   ├── views/
+│   ├── config/
+│   └── libraries/
+├── assets/
+│   ├── css/
+│   ├── js/
+│   └── img/
+├── system/
+└── database.sql
+```
+
+---
+
+## 🛠️ Instalasi & Setup
+
+### 1. Clone atau Download Project
+
+```
+git clone https://github.com/username/spk-profile-matching.git
+```
+
+### 2. Import Database
+
+* Buat database MySQL
+* Import file `database.sql`
+
+### 3. Konfigurasi CodeIgniter
+
+Edit `application/config/config.php`:
+
+```
+$config['base_url'] = 'http://localhost/spk-profile-matching/';
+```
+
+Edit `application/config/database.php`:
+
+```
+'hostname' => 'localhost',
+'username' => 'root',
+'password' => '',
+'database' => 'nama_database',
+```
+
+### 4. Jalankan Project
+
+Akses melalui browser:
+
+```
+http://localhost/spk-profile-matching/
+```
+
+---
+
+## 📊 Contoh Alur Perhitungan Profile Matching (Ringkas)
+
+1. Menentukan kriteria & subkriteria
+2. Menentukan bobot & tipe faktor (Core / Secondary)
+3. Input nilai siswa
+4. Hitung GAP antara nilai siswa & nilai ideal
+5. Konversi GAP ke bobot
+6. Hitung nilai CF dan SF
+7. Hitung nilai akhir
+8. Hasil ranking siswa terbaik
+
+---
+
+## 📄 Lisensi
+
+Private / Open Source — sesuai kebutuhan.
+
+---
+
+## 💬 Kontak Developer
+
+Untuk pengembangan lebih lanjut, hubungi developer sistem.
+
+---
