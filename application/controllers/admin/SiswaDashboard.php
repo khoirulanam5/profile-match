@@ -35,6 +35,3 @@ class SiswaDashboard extends CI_Controller {
 	}
 
 }
-
-/* End of file SiswaDashboard.php */
-/* Location: ./application/controllers/SiswaDashboard.php */

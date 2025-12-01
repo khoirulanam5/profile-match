@@ -38,8 +38,6 @@ class Page extends CI_Controller
 		
 		if($this->input->method() === 'post'){
 			$this->load->model('feedback_model');
-
-			// @TODO: lakukan validasi di sini sebelum insert ke model
 			
 			$feedback = [
 				'id' => uniqid('', true),

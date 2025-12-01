@@ -33,7 +33,6 @@ class Subkriteria extends CI_Controller {
 	{
 		$data['title'] = 'Tambah Sub Kriteria';
 		if ($this->input->method() === 'post') {
-			// TODO: Lakukan validasi sebelum menyimpan ke model
 
 			$subkriteria = [
 				'id_kriteria' => $this->input->post('id_kriteria'),
@@ -73,7 +72,6 @@ class Subkriteria extends CI_Controller {
 		$id_kriteria = $find->id_kriteria;
 
 		if ($this->input->method() === 'post') {
-			// TODO: Lakukan validasi sebelum menyimpan ke model
 
 			$subkriteria = [
 				'id' => $id_sub_kriteria,
@@ -122,6 +120,3 @@ class Subkriteria extends CI_Controller {
 		}
 	}
 }
-
-/* End of file Subkriteria.php */
-/* Location: ./application/controllers/Subkriteria.php */

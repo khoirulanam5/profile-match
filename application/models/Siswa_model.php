@@ -51,8 +51,11 @@ class Siswa_model extends CI_Model
 	public function delete($id)
 	{
 		if (!$id) {
-			return;
+			return false;
 		}
+
+		$this->db->where('id_siswa', $id);
+		$this->db->delete('penilaian');
 
 		return $this->db->delete($this->_table, ['id' => $id]);
 	}
@@ -63,12 +66,10 @@ class Siswa_model extends CI_Model
 		$query = $this->db->get($this->_table);
 		$siswa = $query->row();
 
-		// cek apakah siswa sudah terdaftar?
 		if (!$siswa) {
 			return FALSE;
 		}
 
-		// cek apakah passwordnya benar?
 		$checkPassword = $this->db->where([
 			'nis' => $nis,
 			'password' => $password
@@ -78,7 +79,6 @@ class Siswa_model extends CI_Model
 			return FALSE;
 		}
 
-		// bikin session
 		$this->session->set_userdata([
 			self::SESSION_KEY => $siswa->id,
 			self::SESSION_NAME => $siswa->nama,

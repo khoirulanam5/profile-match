@@ -35,7 +35,7 @@ class Gap extends CI_Controller {
 		}
 
 		if ($this->input->method() === 'post') {
-			// TODO: lakukan validasi data seblum simpan ke model
+			
 			$gap = [
 				'id' => $id,
 				'gap' => $this->input->post('gap'),
@@ -57,6 +57,3 @@ class Gap extends CI_Controller {
 		$this->load->view('admin/gap_edit_form.php', $data);
 	}
 }
-
-/* End of file Gap.php */
-/* Location: ./application/controllers/Gap.php */

@@ -36,7 +36,7 @@
 					<a href="<?= base_url('admin/SiswaDashboard') ?>" class="nav-link">
 						<i class="nav-icon fas fa-home"></i>
 						<p>
-							Dasgboard
+							Dashboard
 						</p>
 					</a>
 				</li>

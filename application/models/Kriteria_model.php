@@ -56,6 +56,3 @@ class Kriteria_model extends CI_Model {
 		return $this->db->delete($this->_table, ['id' => $id]);
 	}
 }
-
-/* End of file Kriteria_model.php */
-/* Location: ./application/models/Kriteria_model.php */

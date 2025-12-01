@@ -29,12 +29,10 @@ class Auth_model extends CI_Model
 		$query = $this->db->get($this->_table);
 		$user = $query->row();
 
-		// cek apakah user sudah terdaftar?
 		if (!$user) {
 			return FALSE;
 		}
 
-		// cek apakah passwordnya benar?
 		$checkPassword = $this->db->where([
 			'username' => $username,
 			'password' => $password
@@ -44,7 +42,6 @@ class Auth_model extends CI_Model
 			return FALSE;
 		}
 
-		// bikin session
 		$this->session->set_userdata([
 			self::SESSION_KEY => $user->id,
 			self::SESSION_NAME => $user->username,

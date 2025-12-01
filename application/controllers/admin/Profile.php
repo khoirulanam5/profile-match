@@ -19,7 +19,6 @@ class Profile extends CI_Controller {
 	{
 		$data['title'] = 'Profile Standar';
 		if ($this->input->method() === 'post') {
-			// TODO: Lakukan validasi sebelum menyimpan ke model
 
 			$kriteria = $this->kriteria_model->get();
 
@@ -50,6 +49,3 @@ class Profile extends CI_Controller {
 	}
 
 }
-
-/* End of file Profile.php */
-/* Location: ./application/controllers/Profile.php */

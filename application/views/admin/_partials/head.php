@@ -1,9 +1,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- <title>Dashboard : Dashboard</title> -->
 <title><?php echo $title ?></title>
 <link rel="icon" href="<?= base_url(); ?>assets/img/smp.png" type="image/png">
-<!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0f5934">
 <meta name="msapplication-navbutton-color" content="#0f5934">
@@ -19,7 +17,5 @@
 <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/datatables-buttons/css/buttons.bootstrap.min.css">
 <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/datatables-fixedcolumns/css/fixedColumns.bootstrap4.min.css">
 <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-
-<!-- <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/datatables-select/css/select.bootstrap4.min.css"> -->
 <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/select2/css/select2.min.css">
 <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">

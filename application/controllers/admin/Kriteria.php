@@ -26,7 +26,6 @@ class Kriteria extends CI_Controller {
 	{
 		$data['title'] = 'Tambah Kriteria';
 		if ($this->input->method() === 'post') {
-			// TODO: Lakukan validasi sebelum menyimpan ke model
 
 			$kriteria = [
 				'id_jenis_kriteria' => $this->input->post('jenis'),
@@ -66,7 +65,7 @@ class Kriteria extends CI_Controller {
 		}
 
 		if ($this->input->method() === 'post') {
-			// TODO: lakukan validasi data seblum simpan ke model
+			
 			$kriteria = [
 				'id' => $id,
 				'id_jenis_kriteria' => $this->input->post('jenis'),
@@ -107,6 +106,3 @@ class Kriteria extends CI_Controller {
 		}
 	}
 }
-
-/* End of file Kriteria.php */
-/* Location: ./application/controllers/Kriteria.php */

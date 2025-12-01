@@ -19,7 +19,7 @@ class Storage extends CI_Controller
 		$file_ext = end($file_name_array);
 
 		$this->output
-			->set_content_type($file_ext) // You could also use ".jpeg" which will have the full stop removed before looking in config/mimes.php
+			->set_content_type($file_ext)
 			->set_output(file_get_contents($file_path));
 	}
 
@@ -41,7 +41,7 @@ class Storage extends CI_Controller
 		$file_ext = end($file_name_array);
 
 		$this->output
-			->set_content_type($file_ext) // You could also use ".jpeg" which will have the full stop removed before looking in config/mimes.php
+			->set_content_type($file_ext)
 			->set_output(file_get_contents($file_path));
 	}
 

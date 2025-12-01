@@ -31,7 +31,7 @@ class Jenis_kriteria extends CI_Controller
 		}
 
 		if ($this->input->method() === 'post') {
-			// TODO: lakukan validasi data seblum simpan ke model
+			
 			$nilai_factor = $this->input->post('nilai_factor');
 			$validasi = $this->jenis_model->validasi($id);
 			if (($validasi->nilai_factor + $nilai_factor) > 100) {

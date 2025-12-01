@@ -39,7 +39,6 @@ class Laporan extends CI_Controller
 		$data['penilaian'] = $this->penilaian_model->get();
 		$data['siswa'] = $this->penilaian_model->get_siswa($condition);
 		$data['jenis'] = $this->jenis_model->get();
-		// $data['set_jumlah'] = $jumlah;
 		$data['setting'] = $this->setting_model->find();
 
 		$this->load->view('siswa/laporan.php', $data);

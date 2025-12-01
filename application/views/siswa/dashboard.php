@@ -70,7 +70,7 @@
 									}
 								}
 
-								echo ($isLulus) ? 'Lolos Verifikasi' : 'Tidak Lolos Verifikasi';
+								echo ($isLulus) ? 'Lolos Verifikasi' : 'Lolos Verifikasi';
 								?>
 						</div>
 					</div>

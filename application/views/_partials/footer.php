@@ -4,11 +4,8 @@
 		<a href="https://smpjuwana.yayasankanisius.sch.id/"><b>SMP Kanisius Juwana</b></a>
 	</div>
 </footer>
-<!-- jQuery -->
 <script src="<?= base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
 <script src="<?= base_url(); ?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Bootstrap 4 -->
 <script src="<?= base_url(); ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?= base_url(); ?>assets/plugins/moment/moment.min.js"></script>
 <script src="<?= base_url(); ?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>

@@ -32,3 +32,6 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 
 user_guide/
 .phpunit.result.cache
+
+# Key
+*.sql

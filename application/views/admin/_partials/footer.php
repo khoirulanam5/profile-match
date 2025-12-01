@@ -31,7 +31,6 @@
 <script src="<?= base_url(); ?>assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
 
-<!-- <script src="<?= base_url(); ?>assets/plugins/datatables-select/js/dataTables.select.min.js"></script> -->
 <script src="<?= base_url(); ?>assets/plugins/select2/js/select2.full.min.js"></script>
 
 <script>

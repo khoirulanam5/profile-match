@@ -52,7 +52,6 @@ class Siswa extends CI_Controller
 		}
 
 		if ($this->input->method() === 'post') {
-			// TODO: lakukan validasi data seblum simpan ke model
 			$siswa = [
 				'id' => $id,
 				'nama' => $this->input->post('nama'),
@@ -66,7 +65,7 @@ class Siswa extends CI_Controller
 			];
 
 			if ($this->input->post('pass')){
-				$siswa['password']=md5($this->input->post('pass'));
+				$siswa['password']= $this->input->post('pass');
 			}
 
 			$updated = $this->siswa_model->update($siswa);

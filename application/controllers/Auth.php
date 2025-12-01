@@ -65,7 +65,6 @@ class Auth extends CI_Controller
 		if ($this->input->method() === 'post') {
 			$this->load->model('siswa_model');
 
-			// $email = $this->input->post('email', TRUE);
 			$nis = $this->input->post('nis', TRUE);
 			$nama = $this->input->post('nama', TRUE);
 			$jenis_kelamin = $this->input->post('jenis_kelamin', TRUE);
@@ -77,7 +76,6 @@ class Auth extends CI_Controller
 			$password = $this->input->post('password', TRUE);
 			$repassword = $this->input->post('repassword', TRUE);
 
-			// $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[siswa.email]', ['required' => 'Masukkan Email', 'valid_email' => 'Email tidak valid', 'is_unique' => 'Email sudah terdaftar']);
 			$this->form_validation->set_rules('nis', 'NIS', 'required|is_unique[siswa.nis]', ['required' => 'Masukkan NIS', 'is_unique' => 'NIS sudah terdaftar']);
 			$this->form_validation->set_rules('nama', 'Nama Lengkap', 'required|is_unique[siswa.nama]', ['required' => 'Masukkan Nama Lengkap', 'is_unique' => 'Nama sudah terdaftar']);
 			$this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required', ['required' => 'Pilih Jenis Kelamin']);

@@ -20,7 +20,6 @@ class Penilaian extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Penilaian';
-		// $data['penilaian'] = $this->penilaian_model->get();
 		$data['siswa'] = $this->penilaian_model->get_siswa(['verifikasi' => 1]);
 		$data['kriteria'] = $this->kriteria_model->get();
 
@@ -92,7 +91,7 @@ class Penilaian extends CI_Controller {
 			$penilaian = [];
 
 			$id_siswa = $this->input->post('siswa');
-			// Jika sudah ada
+			
 			$ada = $this->penilaian_model->get(['a.id_siswa' => $id_siswa]);
 
 			if ($ada) {
@@ -169,7 +168,7 @@ class Penilaian extends CI_Controller {
 			$penilaian = [];
 
 			$id_siswa_post = $this->input->post('siswa');
-			// Delete Siswa
+			
 			$this->penilaian_model->deletePenilaianSiswa($id_siswa_post);
 			$this->penilaian_model->deletePenilaianSiswa($id_siswa);
 
@@ -227,15 +226,13 @@ class Penilaian extends CI_Controller {
 		$this->load->view('admin/penilaian_edit_form.php', $data);
 	}
 
-	// public function delete($id = null)
 	public function delete($id_siswa = null)
 	{
-		// if (!$id) {
+		
 		if (!$id_siswa) {
 			show_404();
 		}
 
-		// $deleted = $this->penilaian_model->delete($id);
 		$deleted = $this->penilaian_model->deletePenilaianSiswa($id_siswa);
 		if ($deleted) {
 			$this->session->set_flashdata('message', 'Penilaian was deleted');
@@ -243,6 +240,3 @@ class Penilaian extends CI_Controller {
 		}
 	}
 }
-
-/* End of file Penilaian.php */
-/* Location: ./application/controllers/Penilaian.php */

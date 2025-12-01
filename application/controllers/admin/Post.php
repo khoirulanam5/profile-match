@@ -27,9 +27,7 @@ class Post extends CI_Controller
 	public function new()
 	{
 		if ($this->input->method() === 'post') {
-			// TODO: Lakukan validasi sebelum menyimpan ke model
 
-			// generate unique id and slug
 			$id = uniqid('', true);
 			$slug = url_title($this->input->post('title'), 'dash', TRUE) . '-' . $id;
 
@@ -61,7 +59,7 @@ class Post extends CI_Controller
 		}
 
 		if ($this->input->method() === 'post') {
-			// TODO: lakukan validasi data seblum simpan ke model
+			
 			$article = [
 				'id' => $id,
 				'title' => $this->input->post('title'),

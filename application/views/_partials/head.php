@@ -2,7 +2,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>SPK - Siswa Berprestasi</title>
 <link rel="icon" href="<?= base_url(); ?>assets/img/smp.png" type="image/png">
-<!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0f5934">
 <meta name="msapplication-navbutton-color" content="#0f5934">
